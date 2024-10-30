@@ -1,0 +1,724 @@
+.megaCalendarWrap {
+  /*WordPress Admin Area Calendar Styles / wp-admin */
+}
+.megaCalendarWrap .sr-only {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: -9999px;
+}
+.megaCalendarWrap .mega-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 35px;
+  position: relative;
+}
+.megaCalendarWrap .mega-content .mega-toolbar {
+  display: flex;
+  flex-wrap: nowrap;
+  flex: 0 1 100%;
+}
+.megaCalendarWrap .mega-content .mega-toolbar > div,
+.megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-button {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+}
+.megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-add-event,
+.megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-select-month {
+  background-color: transparent;
+  border: none;
+  font-size: 13px;
+  min-width: 95px;
+  border: 1px solid #e5e5e5;
+  margin-right: 9px;
+  box-sizing: border-box;
+}
+.megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-add-event i,
+.megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-select-month i {
+  margin-right: 5px;
+}
+.megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-nav {
+  background-color: transparent;
+  width: 45px;
+  font-size: 20px;
+  border-width: 1px;
+  border-color: #ececec;
+  border-style: solid;
+}
+.megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-month {
+  color: #505050;
+  font-size: 20px;
+  margin-left: 5px;
+  width: auto;
+  padding-right: 70px;
+}
+.megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-slider {
+  margin-left: 5px;
+}
+.megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-slider .rangeslider--horizontal {
+  height: 15px;
+}
+.megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-slider .rangeslider--horizontal .rangeslider__fill {
+  background-color: #eb013b;
+}
+.megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-slider .rangeslider--horizontal .rangeslider__handle {
+  height: 35px;
+  width: 35px;
+}
+.megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-button {
+  cursor: pointer;
+  color: #505050;
+}
+.megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-button:hover, .megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-button:focus {
+  background-color: #32adff;
+  color: #ffffff;
+  border: none !important;
+}
+.megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-button.mega-toolbar-select-month:hover, .megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-button.mega-toolbar-select-month:focus {
+  border: 1px solid transparent !important;
+}
+.megaCalendarWrap .mega-content .mega-view {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-header {
+  display: flex;
+  flex: 0 1 100%;
+  justify-content: space-around;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-header .mega-view-header-weekday {
+  color: #949494;
+  font-size: 12px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body {
+  display: flex;
+  flex-direction: column;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week {
+  display: flex;
+  flex: 0 1 100%;
+  justify-content: space-around;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #ececec;
+  border-top: 1px solid #ececec;
+  min-width: 0;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-header {
+  color: #4e4e4e;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 15px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  cursor: pointer;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 125px;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content.show-add:hover:before, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content.show-add:focus:before {
+  color: #949494;
+  font-family: "Flat-UI-Icons";
+  content: "\e614";
+  font-size: 40px;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  opacity: 0.5;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent {
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  color: #585858;
+  margin: 0 2px 2px 2px;
+  padding: 0;
+  font-size: 12px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  background: transparent;
+  border: none;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent:hover, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent:focus, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent:hover, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent:focus {
+  color: #ffffff;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent:hover .megaEventText, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent:focus .megaEventText, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent:hover .megaEventText, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent:focus .megaEventText {
+  background-color: #333333 !important;
+  border-left: 3px solid #222 !important;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent .megaDayImage, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent .megaDayImage {
+  width: 100%;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent.height-18 .megaDayImage, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent.height-18 .megaDayImage {
+  height: 70px;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent.height-18 .megaTitlePara, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent.height-18 .megaTitlePara {
+  -webkit-line-clamp: 3;
+  -moz-line-clam: 3;
+  line-clamp: 3;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent.height-36 .megaDayImage, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent.height-36 .megaDayImage {
+  height: 70px;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent.height-36 .megaTitlePara, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent.height-36 .megaTitlePara {
+  -webkit-line-clamp: 3;
+  -moz-line-clam: 3;
+  line-clamp: 3;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent.height-54 .megaDayImage, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent.height-54 .megaDayImage {
+  height: 70px;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent.height-54 .megaTitlePara, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent.height-54 .megaTitlePara {
+  -webkit-line-clamp: 3;
+  -moz-line-clam: 3;
+  line-clamp: 3;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent.height-72 .megaDayImage, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent.height-72 .megaDayImage {
+  height: 90px;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent.height-72 .megaTitlePara, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent.height-72 .megaTitlePara {
+  -webkit-line-clamp: 4;
+  -moz-line-clam: 4;
+  line-clamp: 4;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent.height-90 .megaDayImage, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent.height-90 .megaDayImage {
+  height: 120px;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent.height-90 .megaTitlePara, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent.height-90 .megaTitlePara {
+  -webkit-line-clamp: 5;
+  -moz-line-clam: 5;
+  line-clamp: 5;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent:first-child, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent:first-child {
+  margin-top: 2px;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent .megaEventText, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent .megaEventText {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  max-height: 72px;
+  background-color: #eeeeee;
+  border-radius: 0 25px 0px 0px;
+  box-sizing: border-box;
+  display: block;
+  padding: 2px 4px;
+  pointer-events: none;
+  background-color: #32adff;
+  border-left: 3px solid #1f8ad1;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent .megaEventText:hover, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent .megaEventText:focus, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent .megaEventText:hover, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent .megaEventText:focus {
+  background-color: #333333;
+  color: #ffffff;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent .megaEventText .megaTime, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent .megaEventText .megaTime {
+  padding: 2px 0px 2px 0px;
+  display: flex;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 9px;
+  line-height: 8px;
+  margin-right: 3px;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent .megaEventText .megaTitle, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent .megaEventText .megaTitle {
+  padding: 0 0 2px 0px;
+  font-size: 13px;
+  font-family: "Roboto", sans-serif;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent .megaEventText .megaTitle .megaTitlePara, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent .megaEventText .megaTitle .megaTitlePara {
+  color: #fff;
+  margin: 0;
+  line-height: initial;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-right: 6px; /*prev 22px */
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  word-break: break-word;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent .megaEventText .megaIcons, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent .megaEventText .megaIcons {
+  display: flex;
+  margin-left: auto;
+  position: absolute;
+  top: 4px;
+  right: 8px;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent .megaEventText .megaIcons i, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent .megaEventText .megaIcons i {
+  margin: 0 2px;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent .megaEventText.full-height, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent .megaEventText.full-height {
+  height: 100%;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent .megaDayImage.noImage, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent .megaDayImage.noImage {
+  display: none;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent .megaDayImage.noImage .megaEventText, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent .megaDayImage.noImage .megaEventText {
+  border-radius: 4px;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent.noImageEvent .megaEventText, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent.noImageEvent .megaEventText {
+  position: relative;
+  border-radius: 4px 25px 4px 4px;
+  background-color: #32adff;
+  border-left: 3px solid #1f8ad1;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent .mega-view-day-content-event-image, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent .mega-view-day-content-event-image {
+  height: 100%;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent .mega-view-day-content-event-image img, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content button.megaEvent .mega-view-day-content-event-image img {
+  object-fit: cover;
+  object-position: 50% 0;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day:last-child {
+  border-right: 1px solid #ececec;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day.today .mega-view-day-header {
+  background-color: #949494;
+  background-color: #e3e3e3;
+}
+.megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week:last-child .mega-view-day {
+  border-bottom: 1px solid #ececec;
+}
+.megaCalendarWrap .mega-content .mega-loading-animation {
+  display: block;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
+  width: 100%;
+}
+.megaCalendarWrap .mega-content .mega-loading-animation.hidden {
+  display: none;
+}
+.megaCalendarWrap .mega-content .mega-loading-animation.visible {
+  display: block;
+}
+.megaCalendarWrap .mega-content .mega-loading-animation img {
+  height: auto !important;
+  margin-top: 300px;
+}
+.megaCalendarWrap .mega-content .mega-legend {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  border: 1px solid #ececec;
+  margin-top: 10px;
+  padding: 5px;
+}
+.megaCalendarWrap .mega-content .mega-legend .mega-legend-header {
+  font-size: 16px;
+}
+.megaCalendarWrap .mega-content .mega-legend .mega-legend-body {
+  display: table;
+}
+.megaCalendarWrap .mega-content .mega-legend .mega-legend-body .mega-legend-items {
+  display: table-row;
+  font-size: 12px;
+}
+.megaCalendarWrap .mega-content .mega-legend .mega-legend-body .mega-legend-items .mega-legend-item {
+  display: table-cell;
+}
+.megaCalendarWrap .mega-content .megaIcons i {
+  color: #fff;
+}
+.megaCalendarWrap .mega-content .mega-tooltip {
+  width: 220px;
+  min-height: 220px;
+  max-height: 450px;
+  border-radius: 10px;
+  border: 4px solid #6a6a6a;
+  background: #ffffff;
+  z-index: 999;
+  overflow: hidden;
+  pointer-events: none;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .arrow-zone {
+  width: 100%;
+  height: 16px;
+  background: transparent;
+  position: absolute;
+  display: flex;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .arrow-zone .arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .arrow-zone.bottom {
+  top: -13px;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .arrow-zone.bottom .arrow {
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent #6a6a6a transparent;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .arrow-zone.top {
+  bottom: -20px;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .arrow-zone.top .arrow {
+  border-width: 10px 10px 0 10px;
+  border-color: #6a6a6a transparent transparent transparent;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent.hidden {
+  display: none;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent.visible {
+  display: flex;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .action-zone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  height: auto;
+  min-height: 40px;
+  left: -60%;
+  bottom: -8px;
+  border-left: 8px solid #565656;
+  border-top: 8px solid #565656;
+  border-bottom: 8px solid #565656;
+  width: 124px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: #ffffff;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .action-zone .action {
+  display: flex;
+  padding: 0px 5px;
+  background-color: #ffffff;
+  margin: 0 8px;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .action-zone .action:hover, .megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .action-zone .action:focus {
+  background-color: #949494;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .action-zone .action a {
+  text-decoration: none;
+  width: 100%;
+  display: block;
+  color: #585858;
+  cursor: pointer;
+  text-align: right;
+  font-size: 12px;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .action-zone .action a:hover, .megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .action-zone .action a:focus {
+  color: #ffffff;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder {
+  height: 100%;
+  width: 100%;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder.slick-slider .slick-list {
+  height: 100%;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder.slick-slider .slick-list .slick-track {
+  height: 100%;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder.slick-slider .slick-prev {
+  left: -10px;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder.slick-slider .slick-next {
+  right: 0px;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone {
+  width: 100%;
+  height: auto;
+  min-height: 50%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, #000000 100%);
+  bottom: 0;
+  position: absolute;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .logistics {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .logistics .header {
+  display: flex;
+  padding: 0 5px;
+  font-size: 12px;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .logistics .header .separator {
+  height: 100%;
+  width: 5px;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .logistics .header .bull {
+  display: flex;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .logistics .body {
+  padding: 0 5px;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .logistics .body p {
+  line-height: 16px;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-line-clamp: 5;
+  margin-bottom: unset;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .logistics .body .small {
+  font-size: 12px;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .logistics.event-logistics .header {
+  height: 20%;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .logistics.event-logistics .body {
+  height: 80%;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .logistics.artist-logistics .body {
+  padding-top: 5px;
+  height: 100%;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .megaIcon {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  overflow: hidden;
+  bottom: 0;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap-reverse;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .megaIcon .icon {
+  margin: 0 5px 5px 0;
+  width: 20px;
+  height: 20px;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .megaIcon .icon a {
+  width: 20px;
+  height: 20px;
+  color: #ffffff;
+  cursor: pointer;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .megaIcon .icon a.musicidbLink {
+  background-size: contain;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .megaIcon .icon a.fbLinkWide {
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding: 1px;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .megaIcon .icon a.ticketsLink {
+  display: block;
+  width: 30px;
+  text-align: center;
+  border-radius: 2px;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .megaIcon .icon a.ticketsLink:hover, .megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .megaIcon .icon a.ticketsLink:focus {
+  background-color: #eb013b;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .megaIcon .icon.fb-link-wide {
+  width: 60px;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .megaIcon .icon.ticket-link {
+  width: 30px;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .megaIcon.event-icons {
+  flex-direction: row;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .megaIcon.event-icons .icon {
+  margin: 0 0 5px 5px;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .megaToolContent .panel-holder .panel .info-zone .megaIcon.event-icons .icon:last-child {
+  margin: 0 5px 5px auto;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .animation {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding-top: 40%;
+  justify-content: center;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .animation.hidden {
+  display: none;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .animation.visible {
+  display: flex;
+}
+.megaCalendarWrap .mega-content .mega-tooltip .view .animation img {
+  align-self: center;
+  height: auto;
+  width: 34px;
+  opacity: 0.2;
+}
+.megaCalendarWrap .mega-content .image-zone {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+}
+.megaCalendarWrap .mega-content .image-zone .one-image {
+  width: 100%;
+  height: 100%;
+}
+.megaCalendarWrap .mega-content .image-zone .two-image {
+  width: 100%;
+  height: 50%;
+}
+.megaCalendarWrap .mega-content .image-zone .four-image {
+  width: 50%;
+  height: 50%;
+}
+.megaCalendarWrap .mega-content .image-zone .six-image {
+  width: 33.3333333333%;
+  height: 50%;
+}
+.megaCalendarWrap .mega-content .image-zone img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.megaCalendarWrap#megacal-manage-calendar {
+  padding: 10px 20px;
+}
+.megaCalendarWrap#megacal-manage-calendar .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent .megaEventText .megaTitle .megaTitlePara {
+  padding-right: 22px;
+}
+
+.megacal-events-integration.blackBack .leftDate .megaDateRegion .megaDate span {
+  color: #dbdbdb !important;
+}
+.megacal-events-integration.blackBack .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day {
+  border-left: 1px solid #2f2f2f;
+  border-top: 1px solid #2f2f2f;
+}
+.megacal-events-integration.blackBack .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day:last-child {
+  border-right: 1px solid #2f2f2f;
+}
+.megacal-events-integration.blackBack .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-header {
+  color: #b5b5b5;
+}
+.megacal-events-integration.blackBack .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day.today .mega-view-day-header {
+  background-color: #2f2f2f;
+}
+.megacal-events-integration.blackBack .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week:last-child .mega-view-day {
+  border-bottom: 1px solid #2f2f2f;
+}
+.megacal-events-integration.blackBack .megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-button {
+  color: #b5b5b5;
+}
+.megacal-events-integration.blackBack .megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-button:hover, .megacal-events-integration.blackBack .megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-button:focus {
+  color: #fff;
+  border: none !important;
+}
+.megacal-events-integration.blackBack .megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-nav {
+  color: #b5b5b5;
+  border-color: #2f2f2f;
+}
+.megacal-events-integration.blackBack .megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-nav:hover, .megacal-events-integration.blackBack .megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-nav:focus {
+  color: #fff;
+}
+.megacal-events-integration.blackBack .megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-month {
+  color: #b5b5b5;
+}
+
+/* Tablets */
+@media only screen and (max-width: 1000px) {
+  .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-header {
+    font-size: 11px;
+    font-weight: normal;
+  }
+  .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent.noImageEvent .megaEventText,
+  .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent .megaEventText {
+    border-radius: 4px 10px 4px 4px;
+  }
+}
+/* Mobile Devices */
+@media only screen and (max-width: 595px) {
+  .megaCalendarWrap .mega-content .mega-toolbar {
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-nav {
+    font-size: 16px;
+    height: 38px;
+    width: 58px;
+  }
+  .megaCalendarWrap .mega-content .mega-toolbar .mega-toolbar-month {
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content {
+    min-height: 90px;
+  }
+  .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent .megaEventText {
+    padding: 1px 2px;
+    border-left: 2px solid #1f8ad1 !important;
+  }
+  .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent .megaEventText .megaTitle {
+    font-size: 10px !important;
+  }
+  .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent .megaEventText .megaTitle .megaTitlePara {
+    line-height: 11px;
+    -webkit-line-clamp: 4;
+    -moz-line-clam: 4;
+    line-clamp: 4;
+  }
+  .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent:hover .megaEventText, .megaCalendarWrap .mega-content .mega-view .mega-view-body .mega-view-week .mega-view-day .mega-view-day-content .megaEvent:focus .megaEventText {
+    background-color: #333333 !important;
+    border-left: 2px solid #222 !important;
+  }
+  body .megacal-events-integration .megacal-tabs ul.calViewButtons li a {
+    padding: 9px;
+    font-size: 19px;
+  }
+}

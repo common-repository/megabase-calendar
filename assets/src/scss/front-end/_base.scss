@@ -1,0 +1,2142 @@
+/*
+Megabase Plugin 
+by Megabase, Inc.
+You can directly edit your WordPress theme to override any styles
+*/
+
+//Colors Verified
+	$white: #ffffff; 
+	$offWhite: #efefef;
+	$white_84: rgba(255, 255, 255, 0.84);
+	$white_100: rgba(255, 255, 255, 1);
+	$grayLight: #c3c3c3;
+	$grayMedium: #999;	
+	$gray65: #656565;
+	$grayDim: #414141;
+	$darkText: #292929;
+	$modalBack:rgba(0, 0, 0, 0.87);
+	$grayDarkest: #111;
+	$black: #000;
+	
+	$buttonBackground:#fdfdfd;
+	$buttonBorder:1px solid #e5e5e5;
+
+	$buttonColor: #eb013b; 
+	$buttonHover: #ff0643;
+	
+	$buttonCurrent:#ececec;
+	
+	$primaryColor: #32aeffe8;
+	$primaryHover: #1f8ad1; 	
+	
+	$linkColor: #0e699c;
+	$linkHover: #32aeffe8;
+	
+	$redLight: #c55959;
+	$redHeavy: #ff3b52;
+
+	$blueLink: #0e699c;
+	$blueHover: #32aeffe8;
+
+	$orange: #f60;
+	$orangeHover: #d05126;
+	
+	$greenLink: #2ea23b;
+	$greenHover:#1d8729;
+
+
+//Extends
+	//original selectors
+	//.cardFloater .socialBubbleIcons, .single #calView .cardFloater .socialBubbleIcons
+	%extend_42 {
+		right: 8px;
+		position: absolute;
+		z-index: 3;
+		bottom: -1px;
+		height: 25px;
+		left:0;
+		padding-right:0;    
+		margin: 0;
+		// left: 8px;
+	}
+	//original selectors
+	//.artistDetails .socialBubbleIcons li, .cardFloater .socialBubbleIcons li
+	%extend_43 {
+		float: right;
+		padding: 0 0 0 2px;
+		margin-bottom: 2px;   
+		list-style-type: none;
+	}
+
+	//original selectors
+	//.eventInfoArea .venueInfoTile, .eventInfoArea .tilesContainer
+	%extend_27 {
+		float: left;
+		clear: none;
+		width: 50%;
+	}
+
+//Fonts
+	$fontSans: sans-serif;
+
+//Helper Classes
+.megacal-events-integration,
+.megacal-settings-page {
+	.cf:before,
+	.cf:after {
+	    content: "";
+	    display: table;
+	}
+	.cf:after {
+	    clear: both;
+	}
+	.cf {	
+	/* For IE 6/7 (trigger hasLayout) */
+	*zoom: 1;
+	}
+}
+
+//Styles		
+	body.noScroll {
+		overflow: hidden;		
+	}
+
+	.megacal-events-integration .slide {
+		position: relative;
+
+		.right {
+			position: absolute;
+			left: 0;
+			top: 0;
+			min-height: 350px;
+			width: 20%;
+			z-index: 10;
+			opacity: 0.8;
+			color: #fff;
+
+			.label {
+				display: block;
+				background: #b4b6ba;
+				color: #000;
+				
+				width: 40%;
+				margin: 15px 0;
+				padding: 5px 15px;
+				text-align: center;
+				line-height: normal;
+			}
+
+			.date {
+				float: left;
+				margin: 15px 15px 0 15px;
+				font-size: 11px;
+
+			}
+
+			.name {
+				text-transform: uppercase;
+				float: left;
+				margin: 0 15px;
+				clear: both;
+				font-size: 14px;
+				line-height: 1em;
+			}
+
+			.tickets,
+			.view-event {
+				clear: both;
+				float: left;
+				margin: 15px;
+			}
+		}
+
+		.left {
+			width: 100%;
+			img {
+				width: 100%;
+			}
+		}
+	}
+	
+	.megaEvent {
+		text-align: left;
+		padding: 0;
+		margin: 0;
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	.megaEventDetail, 
+	.megacal-events-integration, .megaEvents {
+		position: relative;
+
+		//Links and Buttons 
+			a {
+				// display: inline-block;
+				border: none;
+				text-decoration: none;
+				box-shadow: none;
+				outline:none!important;
+			
+				&:focus {
+					outline: 1px solid $grayDim !important;
+				}
+			}
+			button{
+				box-sizing: border-box;
+			}			
+			button:focus {
+				outline: 1px solid $grayDim !important;
+			}
+
+			.controlbar {
+				display: table;
+				margin: 0 auto 20px !important;
+				padding:0 !important; 
+				width: auto;
+				float: none !important;
+				position: relative;
+				padding: 0;				
+				clear:both;
+				&.moveCenter{
+					margin: 0 auto 20px !important;
+				}
+				.accent {
+					top: 24px;
+					font-size: 10px !important;
+					display: block;
+					font-size: 11px;
+					text-align: center;
+					position: absolute;
+					margin: auto;
+					right: 0;
+					left: 0;
+					bottom: -1px;
+				}
+				
+				.likeBtn {
+				}
+				.loveBtn {
+				}
+				.greenBtn {
+					margin-right: 0;
+				}
+				.silverBtn {
+					margin-right: 0;
+				}
+				.blueBtn {
+					margin-right: 0;
+				}
+				.orangeBtn {
+					margin-right: 0;
+				}
+				.mediaBtn {
+					padding-left: 31px !important;
+				}
+				.inactiveBtn {
+					margin-right: 0;
+					background: $grayMedium !important;
+					color: $white;
+					cursor: default;
+				}
+				&.mainHeadline {
+					.likeBtn {
+					}
+					.loveBtn {
+					}
+					> li > a {
+					}
+				}
+				li {
+					display: inline-block;
+					float: left;
+					margin-bottom: 4px;
+					position: relative;
+					margin-right: 4px;
+					.link {
+					}
+					a.rightBorderMe {
+					}
+					&:last-child {
+						margin-right:0;
+						a {
+
+						}
+					}
+				}
+				a {
+					font: 14px/14px Arial,'Open Sans',sans-serif!important;
+					&:hover {
+						text-decoration: none !important;
+					}
+					&.musicIDBevent img.whiteIcon {
+						display: none;
+					}
+				}
+				span {
+					// text-align: center;
+					// font: 13px/15px 'Open Sans', sans-serif;
+					// display: table-cell;
+					// vertical-align: middle;
+					// float: left;	
+					// top: -3px;
+		    		// position: relative;
+				}
+
+				> li {
+					> a {
+						background: $linkColor;
+						color: $darkText;
+						//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+						border-radius: 4px;
+						padding: 16px 24px 12px;
+						display: block;
+						font-size:18px !important;
+						line-height:20px;
+						border-right: none;						
+						//max-width: 100px;
+						position: relative;
+						height: 44px;
+						box-sizing:border-box;
+						min-height: inherit;
+						border: 1px solid transparent;
+
+						&:hover,
+						&:focus {
+							background: $linkHover;
+							color: $white;
+						}
+					}
+					a.TicketLink {
+						position: relative;
+						border:none;
+						
+						&.ticketSmall {
+	
+						}
+					}
+
+					a.orangeBtn {
+						background: $orange;
+						color: $white;
+						margin: 0;
+						// padding: 6px 10px 7px !important;
+
+						&:hover,
+						&:focus {
+							background: $orangeHover;
+							text-decoration: none !important;
+						}
+					}
+				}
+				&.msgBar {
+					li {
+						float: none;
+						margin: 0 -2px;
+					}
+					a {
+						height: 16px;
+						background: $white;
+						margin-right: 5px;
+					}
+					.aReplacement {
+						height: 16px;
+						background: $white;
+						margin-right: 5px;
+					}
+				}
+				
+				.tableize {
+					display: table;
+				}
+				span {
+				}
+				.playBtn {
+					top: 0;
+				}
+				.claim {
+					float: right;
+				}
+				.buttonSpinner,
+				.buttonMsg {
+					position: relative;
+					top: 3px;
+					left: 4px;
+				}
+			}
+
+			.greenBtn {
+				padding: 2px 17px;
+				height: 34px;
+				display: table-cell;
+				vertical-align: middle;
+				font-size: 16px;
+				text-transform: none;
+				border: 0;
+				cursor: pointer;
+				margin-right: 10px;
+
+				padding: 9px 20px;
+				height: inherit;
+				//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+				border-radius: 4px;
+				color: $white !important;
+				min-height: 18px;
+
+				background: $greenLink;
+				&:hover,
+				&:focus {
+					text-decoration: none !important;
+					background: $greenHover !important;
+				}
+			}
+			.blueBtn{
+				background: $blueLink;
+				&:hover,
+				&:focus {
+					text-decoration: none !important;
+					background: $blueHover !important;
+				}
+			}
+			.eventInfoWide {
+				font-size: 12px;
+				line-height: 15px;
+				margin-bottom: 13px;
+				a {
+					color: $primaryColor;
+					
+					&:hover {
+						color: $primaryHover;
+					}
+				}
+			}
+			.btn {
+				i {
+					padding: 0 7px 0 0;
+					float: left;
+				}			
+			}
+			.simpleBtn{
+				display: inline-block;
+			    margin: 0 4px 0 0;
+			    padding: 4px 8px;
+			    border-radius: 5px;
+			    border: 1px solid #ccc;
+			    font-size: 11px !important;
+			    background: #fff;
+			    color: #444;				
+			}
+			.TicketLink span,
+			.orangeBtn span {
+				//font: 14px/15px Arial,'Open Sans',sans-serif!important;
+
+				i {
+					// margin-right: 5px;
+					position: absolute;
+				    left: 10px;
+			    	top: 5px;
+				}
+			}
+			a.fbLinkWide {
+		    	color: #fff !important;
+		    	background: #3B5998 !important;
+			    border: 1px solid transparent !important;
+			    i.fui-facebook{
+			    	color:#FFF;
+			    }
+			    &:hover,
+				&:focus {
+			    	color:#fff !important;
+			    	background: #1919f3 !important;
+			    }
+		    }
+		    &.blackBack{
+		    	.eventsList .rowView .rowColumn .simpleBtn{
+					background:#181818;			
+					color:#eee;	
+					&:hover,
+					&:focus {
+						background:#000;
+					}	
+				}
+				.fbLinkWide{
+					background: #3B5998 !important;
+    				border: none !important;
+    				border: 1px solid transparent !important;			
+    				&:hover,
+					&:focus {
+    					background: #153a85 !important;
+    					color: #fff !important;;
+    				}
+				}				
+		    }
+
+			p.megacal-err-msg {
+				width: fit-content;
+				margin: 40px auto;
+			}
+		    .eventOrganizers{
+		    	img{
+		    		max-width:240px;
+		    		height:auto;
+		    		margin:0 20px 20px;
+		    	}	
+		    }
+		//General Styles
+			
+			img {
+				max-width:100%;
+				height:auto;
+				border:none;
+				background:none;
+			}
+			.preLoader {
+				display: table;
+				margin: 140px auto;
+			}
+			.fui-plus-circle {
+				cursor: pointer;
+				color:#797979;
+			}
+			.summaryToggle:hover .fui-plus-circle {
+				color:#444;	
+			}
+			h2.date {
+				font-size: 20px;
+    			margin: 0 0 5px;
+			}
+
+			.megacal-admin-preview-message {
+				text-align: center;
+				width: 250px;
+				margin: 75px auto;
+			}
+
+		//List Styles
+			.leftDate{
+				//flex-direction:;
+				//display:flex;
+				text-align: center;
+				float: left;
+				//width:80px;
+			    //flex: 0 0 80px;
+			    overflow: hidden;
+			    box-sizing:border-box;
+				padding:0;
+				//height: 100%;
+			    //align-items: center;    
+				//background:#eee;
+				.megaDateRegion{
+					//display:flex;
+					//align-items: center;
+					height:100%;    
+					h3, .h3, .megaDate{
+						font-size:20px;
+						color:#FFF !important;
+						line-height:24px;
+						margin:0;
+					}
+					.megaDate {
+						background:none;
+						padding:1px 0px 0px;
+						font-size:18px;
+						float:left;
+						margin: 0;
+
+						display: flex;
+					    align-items: center;
+					    width:80px;
+					    height: 100%;
+					    flex-direction: column;					    
+					    justify-content: center;
+
+						span {
+							color: #5d5d5d !important;
+							background: none !important;
+							//width: 65px;
+
+							&.monthName, &.dayNum, &.yearNum {
+								display: block;
+								text-align: center;
+							}
+							&.monthName {				
+								//font: 15px/17px "Arial", "sans-serif";
+								font-size:15px;
+								line-height:17px;
+								padding: 2px 0 0;
+								
+								text-transform: uppercase;
+								padding: 2px 0;								
+								font-weight: bold;								
+							}							
+							&.dayNameAbb {
+								text-transform: none;
+							}							
+							&.dayNum {	
+								font-size:35px;
+								line-height:37px;
+								padding: 0;								
+								margin-bottom: 0;
+								position: relative;
+			    				top: -3px;		
+								
+							}
+							&.yearNum{							
+								color: $grayMedium !important;
+							    font-size: 10px;    
+							    line-height: 10px;
+							    position: relative;
+							    top: -3px;
+							}
+						}
+					}
+					.dateMask{
+						
+					}
+					.megaDayName{
+					
+					}
+					&.dateMask{
+						background:#48484869;
+						box-sizing:border-box;
+						padding:7px 7px 7px;
+					}
+				}		
+
+			}
+			
+			ul {
+				left:0;
+				list-style:none;
+				padding-right:0;
+				margin-left: 0;
+			}
+			.thumbTileHolder {
+				width: 220px;
+				//height: 220px;
+				min-height:220px;
+				max-height:450px;
+				position: relative;
+			}
+
+			.eventsList {
+				list-style: none;
+				left:0;
+				padding-left: 0;
+			    margin-left: 0 !important;
+			    padding-right:0 !important;
+
+				.listEvent {
+					background: $white;  
+					background:#ffffffe0;  
+					border: 1px solid $white !important;
+					margin-bottom: 0;
+					margin: 0 0 5px 0;
+					padding: 8px 8px 5px 26px;
+					position: relative;
+					clear: both;
+
+					.centeredBlock {
+						margin-top: 0;
+					}			
+
+					&:nth-child(2n) {
+						background:#fbfbfbe0;
+						border-top: 1px solid $offWhite;
+						border-bottom: 1px solid $offWhite;
+					}
+					.summaryToggle  {
+						position:absolute;
+						// top: 15px;
+    					// left: 5px;
+    					top: 7px;
+    					left: 10px;
+						background: none;
+						border: none;
+						outline: none;
+					}
+					&.noExpand {
+						padding-left: 8px;
+					}
+
+					article {
+						margin-bottom: 5px;
+					}
+
+					.details {
+						margin-bottom: 0;
+					}
+
+					.navWithBubbles .bubbleContent {
+						bottom: 44px;
+					}
+
+					.eventPosterArea {
+						max-height: 140px;
+						width: 125px;
+						overflow: hidden;
+						float: left;
+
+						img {
+							width: 125px !important;
+							margin: 7px 0 0;
+							// max-height: 210px;
+							max-height: none;
+							background: $offWhite;
+							max-width: 100%;
+						}
+						img.defaultPic {
+							opacity: .3;
+							background:none;    
+							top: -30px;
+    						position: relative;
+						}
+
+						.bandPicBox img {
+							margin: 0 auto;
+							height: auto;
+							min-width: 41px;
+							width: 100% !important;
+						}
+					}
+					.listingBody, .controlbar.moveLeft {
+						margin-left: 215px;
+					}
+					.listingBody {
+				    	
+				    	h3 {
+				    		margin-bottom:12px;
+				    		.atText{
+					        	font-size:12px;
+					        }
+				    	}
+				    	p {
+				    		margin-bottom:4px;    
+				    		padding: 0;
+				    	}
+				    }
+
+					.details {
+						margin-bottom: 4px;
+					}
+					.eventLogistics {
+						height: inherit;
+						margin-bottom: 3px;
+					}
+					.venueInfo .detailsRow {
+						width: 70%;
+					}
+					.fullInfo {
+					    margin-top: 15px;
+					}			
+				}
+				//Artist View / Simple Compact Event List View
+				.rowView {
+			        width: 100%;
+			        display: table-row;
+					.rowColumn{
+						display:table-cell;    
+						text-align: left;
+						vertical-align: top;
+						width: 20%;    
+						padding: 5px 10px;
+						vertical-align: middle;
+		    			box-sizing: border-box;
+		    			p{
+					    	font-size: 14px;
+					        line-height: 15px;
+					        margin-bottom:4px;
+				    	}
+					    &.titleColumn{
+					        width:33%;
+					    }
+					    &.detailsColumn{
+					    	position: relative;
+    						//top: -13px;
+    						width:33%;
+					    }
+		    			
+		    			&.buttonsColumn{
+		    				width:26%;    
+		    				text-align: right;
+							min-width: 220px;
+		    			}
+		    			
+		    			span.yearNum{
+		    				text-align:left;
+		    				display:inline;
+		    				top:0;
+		    			}
+		    			
+		    			.simpleBtn{
+		    				display: inline-block;
+						    // margin: 0 4px 0 0;
+						    // padding: 4px 8px;
+						    // border-radius: 5px;
+						    // border: 1px solid #ccc;
+						    // 
+						    font-size: 11px !important;
+						    // background: #fff;
+						    // color: #444;						    
+		    				&.fbLinkWide{
+		    					display:inline-block;
+		    				}
+		    			}
+					}
+
+					.locationColumn {
+			        	width:14%;
+			    	}
+				    .simpleTitle {
+				        font-size: 14px;
+				        line-height: 15px;
+				        margin-bottom: 6px;				        
+				    }
+				    
+			    }
+			}
+
+			.eventInfoArea {
+				.left {
+					width: 50%;
+				}
+				.venueInfoTile {
+					@extend %extend_27;
+				}
+				.tilesContainer {
+					@extend %extend_27;
+				}
+				
+			}
+			//Strip & Reset WYSIWYG Content for Clean Display
+			.eventDescription {
+				color: $grayDim !important;
+				font-family:Arial, sans-serif !important;
+				font-size:16px !important;
+				line-height:22px !important;
+				span, div, p, 
+				h1, h2, h3, h4, h5, h6{
+					color:$grayDim !important;
+					background:none !important;
+				}
+				a{
+					background:none !important;	
+				}
+				span, div, p {
+					font-family:Arial, sans-serif !important;
+					font-size:16px !important;
+					line-height:22px !important;
+				}
+				div, p {
+					margin-bottom:15px !important;
+					padding:0 !important;
+				}
+			}
+			
+			.thumbTileHolder {
+				width: 220px;
+				min-height: 220px;
+				max-height:450px;
+				position: relative;
+			}
+
+			.showDetailsLink:not(.simpleBtn) {
+	        	//padding-top: 13px;
+	        	//display: inline-block;
+	        }
+
+			.cardFloater {
+				position: relative;
+				display: inline-block;
+				padding: 0;
+				
+				&:hover {
+					.thumbTileHolder {
+						display: block;
+					}
+				}				
+				.thumbTileHolder {
+					display: none;
+					position: absolute;
+					bottom: 28px;
+					left: -10px;
+					overflow: hidden; /*beta change */
+					z-index: 3;
+					font-weight: normal;
+					font-size: 14px;
+					margin: 0;
+				}
+								
+				.thumbTile img {
+					border: none;
+					margin: 0;
+					border-radius: 0;
+					max-width: 100%;
+				}
+			}
+			.thumbTile, .thumbTile .eventFrame {
+				min-height: 220px; 
+				/*without this the short images cause overlay text to not stick to bottom */
+			}
+			.thumbTile {
+				position: relative;
+				//width: 220px;
+				//height: 220px;    
+				//height: 220px;
+				
+				color: $gray65 !important;
+				display: block;
+				background: $white;
+
+				.frameImagePic{
+					max-height: 150px;
+					overflow:hidden;
+					&.frameDefaultPic{
+						max-height:110px;
+					}
+				}
+
+				.tileData {
+					position: relative;
+					bottom: 0;
+					left: 0;
+					max-height: 178px;
+					box-sizing: border-box;
+					width: 100%;
+					padding:6px 5px 3px;
+					overflow: hidden;
+					background: linear-gradient(to bottom, $white_84 0, $white_84 1%, $white_100 100%);
+					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d6ffffff', endColorstr='#ffffff', GradientType=0);
+
+					i{
+						margin:0 4px 0 0;
+						color:#777;
+						font-size:12px;
+						text-align:center;
+						width:12px;
+					}
+					p {
+						margin-bottom: 2px;
+			    		line-height: 13px !important;
+			    		font-size: 12px;
+			    		margin-bottom:5px;
+					}
+
+					h3 {
+						margin-right: 0;
+						color: $grayDim;
+						font-size:17px;
+						line-height:18px;
+    					margin: 0 0 5px 0;
+					}
+
+				}
+
+				&:hover {
+					text-decoration: none;
+				}
+				
+				.eventFrame {
+					overflow: hidden;
+					position: relative;
+				}
+
+				img {
+					position: relative;
+					width: 100%;
+					height: auto;
+					vertical-align: middle;
+					display: table-cell;
+				}
+
+				.picBox {
+					width: 73px;
+					height: 73px;
+					margin-right: 0;
+					margin-bottom: 0;
+					background: $grayDarkest;
+				}
+
+				h3 {
+					font-size:20px;
+					line-height:19px;
+					font-family:$fontSans;
+				}
+			}
+
+			.bandPicBox {
+				width: 62px;
+				height: 62px;
+				display: block;
+				overflow: hidden;
+				float: left;
+				margin-right: 0px;
+				margin-bottom: 0px;
+				box-sizing:border-box;
+				text-align: center;
+
+				&:nth-child(2n) {
+					margin-right: 0;
+				}
+			}
+
+			.eventsList .listEvent .oneBand .bandPicBox {
+				width: 125px;
+				height: auto;
+				float: none;
+				margin-right: 0;
+				img {
+					width:100% !important;
+				}
+			}
+			
+
+		//Tabs
+			.megacal-tabs {
+
+				//margin-bottom: 40px;
+
+				&.megacal-view-tabs {
+					display: flex;
+				}
+
+				&.horizontal {
+					display: block;
+					width: 100%;
+					clear: both;
+				}
+				ul.megacal-tabNav {
+					left:0;
+					float: left;
+					padding:0;    
+					margin: 0 0 7px;
+					li {
+						list-style:none;
+						float:left;
+						display:inline-block;
+						margin:0 8px 8px 0;
+						a {
+							display:block;
+							padding: 15px 20px;
+						    border-radius: 2px;
+						    color:$grayDim;
+						    background: $buttonBackground;	
+							border: $buttonBorder;	
+							line-height: 13px;	
+							font-size: 13px;
+							
+						    &:hover, &:focus {
+						    	//background: $buttonHover;
+						    	background: $primaryColor;	
+						    	border:1px solid $primaryColor;
+						    	color:$white;
+						    }
+						}
+						&.current a, &.current a:hover {	
+							background: $buttonCurrent;	
+							color: #444;
+						}
+					}
+				}			
+
+				> a {
+			    	font: 17px/20px 'Roboto',Arial,sans-serif;
+			    }
+
+				ul.calViewButtons {
+					float: right !important;
+					position: absolute !important;
+					right: 5px;
+					left: inherit !important;
+					z-index: 3;
+
+					li {
+						display: block;
+						float: left;   
+						margin: 0 0px 8px 0;
+
+						a {
+							border: 1px solid  $offWhite !important;
+							background: $white !important;
+							display: block;
+							padding: 11px;
+							font-size: 23px;
+							line-height: 20px;
+							color: $grayDim;
+							
+							&:hover,
+							&:focus {
+								color: $black;								
+								border: 1px solid $offWhite !important;
+								// border-bottom: 1px solid $black !important;
+							}
+							&#listViewToggle {
+								border-radius:3px 0px 0px 3px;
+							}
+							&#calViewToggle{
+								border-radius:0px 3px 3px 0px;
+							}
+						}
+
+						&.current a {
+							color: $black;
+							border: 1px solid  $offWhite !important;
+							
+						}
+						
+					}
+				}
+			}
+			
+			.megacal-tab {
+				
+				display: none;
+    			clear: both;
+				
+				&.current {
+					display: block;
+				}
+
+			}
+
+			.megacal-view-wrap {
+
+				width: 100%;
+
+				&.show-filters {
+					width: 85%;
+				}
+
+				&.current {
+					display: flex;
+				}
+
+				&.megacal-list-view {
+					.megacal-tabs {
+						width: 100%;
+					}
+				}
+
+				&.megacal-cal-view {
+					.megacal-public-calendar {
+						width: 100%;
+					}
+				}
+
+			}
+
+			#megacal-cal-filters {
+
+				width: 15%;
+
+				.megacal-filter-section {
+					padding: 85px 20px 20px 0px;
+				}
+
+				button {							
+					display: block;
+					// border: none;
+					width: 100%;
+					text-align: left;
+					border-radius: 2px;
+					padding: 14px 20px;
+					cursor: pointer;
+					margin: 0 0 4px 0px;
+					background: $buttonBackground;
+					border: $buttonBorder;
+					font-size: 13px;
+
+					&:hover, &:focus {
+						background: $primaryColor;
+						border:1px solid $primaryColor;
+						color:$white;
+					}
+					&.current, &.current:hover{
+						background: $buttonCurrent;
+						color: #444;
+						color: white;
+					}
+				}
+			}
+
+			.mediaTabNav {
+				display: block;
+				float: left;    
+				margin: 0;
+				list-style: none;
+    			padding: 0;
+
+				li {
+					float: left;
+					margin-right: 5px;
+					margin-bottom: 0;
+					a {
+						
+						display:block;
+						padding:1px 8px 0px;
+						
+						color: $grayMedium;
+						//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+						border-radius: 0 0 5px 5px;
+						font-family: Arial, sans-serif;
+						line-height: 24px;
+						font-size: 18px;			
+						&:hover,
+						&:focus {
+							background: $offWhite;
+							color: $darkText;
+						}
+					}
+					&.current a {
+						background: $offWhite;
+						color: $gray65;
+					}
+				}
+			}
+
+		//Modal Styles
+			.eventDetailModal {
+				width: 60%;
+				left: 0 !important;
+				right: 0 !important;
+				top: 39px !important;
+				margin: 0 auto;
+				box-sizing: border-box;
+	        	max-height: 95%;
+	        	p {
+	        		margin-bottom:5px;
+	        	}
+
+				.cardsSlideWrap {
+					width: 90%;
+					max-width: 770px;
+					margin: 0 auto;
+					padding:0;
+					margin-bottom:14px;
+				
+					#artistCardsSlider {
+				        padding:0 !important;
+						background: #dcdcdc;
+						margin: 0 auto 0px;
+
+				        .mediaHolder {
+							float: left;
+						    color: #656565;
+						    background:#FFF;
+						    padding:7px;
+						    width: 66% !important;
+    						margin: 5px 0 0 9px !important;
+						    box-sizing:border-box;
+						}
+
+						.cardFloater {
+							padding-top: 0;    							
+							float: left;
+							max-width: 28%;
+						    width: 28% !important;
+						    margin: 5px 0 0 2% !important;
+							box-sizing: border-box;
+							.thumbTile, .linkTileHolder, .eventFrame {	
+								max-width:100%;
+								border:none;
+							}		
+						}
+
+						.linkTileHolder {
+							margin-left: 0;
+						}
+
+						.thumbTile {
+							width: 250px;
+							width: 100%;
+							height: 250px;
+							box-sizing:border-box;
+							padding:7px;
+
+							.eventFrame {
+								height:250px;
+								max-height: 100%;
+							}
+
+							.tileData {
+								width: 100%;
+								max-width: 100%;
+								-moz-box-sizing: border-box;
+					    		-webkit-box-sizing: border-box;
+								box-sizing: border-box;
+
+								.socialBubbleIcons {
+									bottom:inherit;
+									top: 73px;
+
+									li a {
+										background-size: 381px 123px !important;
+									}
+								}
+							}
+						}
+
+						.artistMediaTabs {
+							height: 208px;
+							overflow: hidden;
+						}
+
+						.artistMediaTab {
+							width: 100%;
+							height: 100%;
+							display: none;
+							
+							iframe {
+								width: 100%;
+								height: 100%;
+							}
+
+							&.current {
+								display: block;
+							}
+
+							&.artistBio {
+								overflow: auto;    
+								background: white;
+
+								.bioWrapper {
+									padding: 10px;
+									display: block;   
+					    			color: #5f5f5f;
+					    			font:14px/18px Arial, sans-serif !important;
+									span {
+										background: none !important;
+										color: #5f5f5f !important;
+										font:14px/18px Arial, sans-serif !important;
+									}
+								}
+							}
+						}
+						.mediaHolder.noMedia{
+							display:none;
+						}
+
+						.noMedia {							
+							.thumbTile {	
+								background: none;							
+								.tileData {
+									background: none;
+									// left: 260px;
+									// bottom: -8px;
+									// width: 172%;
+									left: 210px;
+    								bottom: 60px;
+									width: 338px;
+							    	max-width: none;
+									.socialBubbleIcons {
+										left:8px;
+										right:0;
+										li {
+											float: left;
+										} 
+									}
+								}
+							}
+						}
+				    }
+
+				    #artistCardsSlider, 
+					#artistCardsSlider ul.slides , 
+					#artistCardsSlider .slides li.slick-slide {
+						height: 270px !important;
+					}
+				}
+
+				#artistCardsList {
+					display: none;
+					
+					> h2 {
+						text-align: center;
+					}   
+					.artistsList {
+					
+					}
+					
+					.cardFloater {
+						display: block;
+						// text-align:left;
+						width: 236px;
+						margin: 0 auto 35px;
+					}
+
+					.linkTileHolder {
+						margin-left: 0;
+					}
+
+					span.stat {
+						background:none;
+						color:#888
+					}
+				}
+
+				.artistMediaExpander {
+					cursor: pointer;
+					text-align: center;
+					padding-bottom: 10px;
+					margin-bottom: 0;
+					font-size: 22px;
+					i {
+						&.leftIcon {
+							margin-right: 12px;
+						    top: 3px;
+						    position: relative;
+						}
+						&.expandCollapseIcon {
+							float: right;
+							font-size: 13px;
+							margin-top: 5px;
+						}
+					}
+				}
+
+				.artistMediaSection {
+					display: none;
+					iframe {
+						width: 100%;
+					}
+				}
+				.modalTickets {
+					max-width: 770px;					
+				    padding: 9px 0;
+    				margin: 0 auto 20px;
+    			}
+				.playNowText {
+					display: block;
+					float: left;
+					display:none;
+					margin-right: 15px;					
+				}
+				.eventDescription{
+					min-height:250px;
+				}
+				.eventTopDetails, 
+				.eventDescription {	
+					padding: 0;	    
+				    width: 770px;
+				    max-width: 90%;
+				    margin:0 auto 10px;
+				}
+				.eventTopDetails{
+					margin-top:5px;
+					h2.date {
+						padding-top:25px;
+					}
+				}
+			}
+
+			.eventArtistStats {
+				float: right;
+				position: relative;
+			    top: 4px;
+				span {
+					display: block;
+					float: left;
+					margin-right: 5px;					
+					font-size: 16px;
+					line-height: 19px;
+					&.pageLink {
+						font-size: 12px;
+					    position: relative;
+					    color: #999;
+					    top: 3px;
+					}
+					i {
+						font-size: 11px;
+					}
+					a {
+						&:hover {
+							text-decoration: none;
+						}
+					}
+					&:last-child {
+						margin-right: 0;
+					}
+					&.stat {
+						padding: 2px 5px;
+					}
+				}
+			}
+			.megacal-integration-mask {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				cursor:pointer;
+				width: 100% !important;
+				height: 100% !important;
+				z-index: 9000;
+				background-color: $modalBack;
+			}
+
+			.window {
+				display: none;
+				position: fixed;
+				z-index: 9999;
+				border: 12px solid #ffffff;
+				border-radius: 10px;
+				box-sizing: border-box;
+				background-clip: padding-box;
+				background: $grayMedium;
+				width: 85%;
+				max-width: none;
+				min-width: 796px;
+				height: 90%;
+				overflow: auto;
+				min-height: inherit !important;			
+				padding-bottom: 10px;	
+			}
+
+			.modalClose {
+				text-transform: none;
+				position: absolute;
+				top: 5px;
+				right: 10px;
+				font-size: 12px;
+				float: right;
+				margin-bottom: 5px;
+				padding: 7px 6px 6px;
+				border: 1px solid $grayMedium;
+				color: $gray65 !important;
+				font-size: 10px;
+				line-height: 12px;
+				position: relative;
+				z-index: 100;
+				font-size: 20px;
+
+				&:hover {
+					color: $redHeavy;
+					background: $white;
+					color: $grayDim;
+				}
+			}
+	
+		//Slider
+			.slick-slider {
+			    position: relative;
+			    display: block;
+			    box-sizing: border-box;
+			    -webkit-touch-callout: none;
+			    -webkit-user-select: none;
+			    -khtml-user-select: none;
+			    -moz-user-select: none;
+			    -ms-user-select: none;
+			    user-select: none;
+			    -ms-touch-action: pan-y;
+			    touch-action: pan-y;
+			    -webkit-tap-highlight-color: transparent;
+			}
+
+			.slick-list {
+			    position: relative;
+			    overflow: hidden;
+			    display: block;
+			    margin: 0;
+			    padding: 0;
+
+			    &:focus {
+			        outline: none;
+			    }
+
+			    &.dragging {
+			        cursor: pointer;
+			        cursor: hand;
+			    }
+			}
+
+			.slick-slider .slick-track,
+			.slick-slider .slick-list {
+			    transform: translate3d(0, 0, 0);
+			}
+
+			.slick-track {
+			    position: relative;
+			    left: 0;
+			    top: 0;
+			    display: block;
+			    margin-left: auto;
+			    margin-right: auto;
+
+			    &:before,
+			    &:after {
+			        content: "";
+			        display: table;
+			    }
+
+			    &:after {
+			        clear: both;
+			    }
+
+			    .slick-loading & {
+			        visibility: hidden;
+			    }
+			}
+			
+			.slick-slide {
+			    float: left;
+			    height: 100%;
+    			box-sizing: border-box;
+			    min-height: 1px;
+
+			    [dir="rtl"] & {
+			        float: right;
+			    }
+
+			    img {
+			        display: block;
+			    }
+			    &.slick-loading img {
+			        display: none;
+			    }
+
+			    &.dragging img {
+			        pointer-events: none;
+			    }
+
+			    .slick-initialized & {
+			        display: block;
+			    }
+
+			    .slick-loading & {
+			        visibility: hidden;
+			    }
+			    .slick-loading {
+					background:url('../assets/img/loading.svg') no-repeat center;
+					min-height: 300px;
+				}
+			    .slick-vertical & {
+			        display: block;
+			        height: auto;
+			        border: 1px solid transparent;
+			    }
+			}
+
+			.slick-arrow.slick-hidden {
+			    display: none;
+			}
+
+			ul.slides {
+				overflow:visible !important;
+				list-style: none;
+
+				.slick-arrow {
+					display: block !important;
+					width: 21px;
+					height: 35px;
+					position: absolute;
+					top: 110px;
+					cursor: pointer;
+
+					background-color: transparent !important;
+					background-image: url('../assets/img/arrows.png');
+					outline: none !important;
+					border: none !important;
+					text-indent: -9999px;
+
+					&.slick-prev {
+						background-position: top left;
+						left: -30px;
+					}
+
+					&.slick-next {
+						background-position: top right;
+						right: -30px;
+					}
+				}
+			}
+	
+		//Misc Styles
+			.megacal-subscribe-section {
+				clear: both;
+				float: right;
+			}
+
+			.loadMoreBtn {
+				opacity: 0.9;
+				&:hover {
+					opacity: 1;
+				}
+			}
+
+			.centerThisGuy{
+				text-align:center;
+				.loadMoreBtn {
+					margin:0 auto;
+					display: inline-block;
+				}
+			}
+			.modalFootLinkers{
+				font-size: 12px;
+				line-height: 15px;
+				margin-bottom: 13px;
+				a{
+					color:#969696;
+				}
+			}
+			.widgetsLink {
+				float:right;
+				img {
+		    		width: 100px;
+		    	}	    	
+		    }
+		    
+
+		//Themes
+			&.blackBack {
+				color:#EEE;
+				.megacal-integration-mask {
+					background-color: $modalBack;   
+				}
+				.modalInner {
+					background: $black;
+				}				
+				.st-bg {
+					border: $darkText 1px solid !important;
+				}
+				.summaryToggle:hover .fui-plus-circle{
+					color:#FFF;	
+				}
+				.window {
+					background: $black;
+					border: 12px solid $grayDim;
+				}
+				div.fbutton {
+					border: $darkText 1px solid !important;
+				}
+				div .rb-m .rb-i {
+					background: $darkText;
+					background: $modalBack;
+					//background:none;
+					color: #dedede;
+				}
+				.rb-i .dateBoxTextUnderImg{
+					background: $modalBack;
+					color: $white !important;					
+				}
+				.rb-i:hover .dateBoxTextUnderImg{
+					background: $darkText !important;
+				}
+				.month-row {
+					border: none !important;
+				}
+				.preferencesBox {
+					color: $gray65 !important;
+				}
+				.eventsList .listEvent{
+					
+					background: $grayDarkest;
+
+					border:1px solid $grayDarkest !important;
+					&:nth-child(2n){
+						
+						background:$modalBack;
+					}
+					h3 {
+			    		
+			    		margin-bottom:5px;
+			    		&.date span{
+							color: $grayLight !important;
+			    		}
+			    	}
+				}			
+				h3 {
+		    		color:#eee;		    		
+				}
+				.megacal-tabs ul.calViewButtons {
+					li {
+						a {					
+						    border: 1px solid $darkText !important;    				
+    						background: $darkText !important;
+    						color: $grayLight;
+    						&:hover,
+							&:focus {
+    							background: $buttonHover !important; 
+    							color: $white !important;
+    						}
+						}
+					}
+					li.current {
+
+					}
+				}
+				ul.slides .slick-arrow {
+					background-image: url('../assets/img/arrowsdark.png');
+				}
+				
+			}
+
+			&.lightBack {
+				h2, h3 {
+					// color:#565656;
+				}
+				h4 {
+					// color: $color_chicago_approx;
+				}
+				p {
+					//color: $color_chicago_approx;
+				}
+
+				.listItem:nth-child(2n),
+				.tableEventView:nth-child(2n) {
+					border-top: 1px solid $offWhite;
+					border-bottom: 1px solid $offWhite;
+					clear: both;
+				}
+			}		
+			
+			&.blackBack .horizontal .ui-tabs-panel, 
+			&.blackBack .megacal-tabNav li.current a, 
+			&.blackBack .modalSections > .modalTabNav a.currentState, 
+			&.blackBack .horizontal .megacal-tabNav li a,
+			&.blackBack .megacal-tabNav li:first-child,
+
+			&.lightBack .horizontal .ui-tabs-panel, 
+			&.lightBack .megacal-tabNav li.current a, 
+			&.lightBack .modalSections > .modalTabNav a.currentState, 
+			&.lightBack .horizontal .megacal-tabNav li a,
+			&.lightBack .megacal-tabNav li:first-child {
+				background: none;
+				border:none !important;
+			}
+			&.blackBack .horizontal .megacal-tabNav li.current,
+			&.lightBack .horizontal .megacal-tabNav li.current {
+				top:inherit;
+			}
+			&.blackBack .megacal-tabNav li.current a, 
+			&.blackBack .horizontal .megacal-tabNav li a:hover {
+				// border-bottom: 1px solid #eee !important;
+		    	color: #EEE !important;
+    			background: #272727 !important;    				
+			}
+			&.blackBack .horizontal .megacal-tabNav li a{
+				color:#6d6d6d;
+				background: #272727 !important; 
+				&:hover {
+
+				}
+			}
+		
+			&.blackBack .listItem:nth-child(2n), 
+			&.blackBack .tableEventView:nth-child(2n) {
+				border-top:1px solid #373737;
+		    	border-bottom: 1px solid #373737;
+		    	clear:both;
+			}
+			&.lightBack .listItem:nth-child(2n), 
+			&.lightBack .tableEventView:nth-child(2n) {
+				border-top: 1px solid #d3d3d3;
+		    	border-bottom: 1px solid #d3d3d3;
+		    	clear:both;
+			}
+			&.blackBack .artistFacts {
+				color:#7b7b7b;		
+			}
+			&.blackBack a, &.blackBack h3 a {
+				color:#1aadff;
+			}
+
+
+			&.blackBack .linkTile {
+		    background: #1d1d1d !important;
+		    /*color:#666;*/
+			}
+			&.blackBack .linkTile.lightBack h4 {
+			    color:#9f9f9f !important;
+			}
+			&.blackBack img.alignleft {
+			    border:1px solid #1d1d1d;
+			}
+			&.blackBack .modalTickets {
+				border-top: 1px solid #383838;
+				border-bottom: 1px solid #383838;
+			}
+			.venue-377 {
+
+			}
+			&.blackBack.venue-377 .listingBody a {
+			    color: #c4c4c4;
+			}
+			&.blackBack .controlbar>li>a {
+		    	border:1px solid transparent !important;
+			}
+			&.blackBack img.alignleft {
+			    border:none !important;
+			}
+			&.lightBack #caltoolbar,
+			&.lightBack #gridcontainer,
+			&.lightBack .cc,
+			&.lightBack .mv-daynames-table,
+			&.lightBack .mv-event-container,
+			&.lightBack .st-dtitle,
+			&.lightBack div.ctoolbar div.fbutton.fcurrent, 
+			&.lightBack .whiteBack {
+			    background: none !important;
+			}
+			&.lightBack div.fbutton, &.lightBack .mv-container {
+			    /*background: rgba(255, 255, 255, 0.56) !important;*/
+			}
+			&.lightBack div.fbutton {
+			    border:none;
+			}
+			&.lightBack div#sfnextbtn, &.lightBack div#sfprevbtn {
+				border: #ececec 1px solid;
+			    border-radius: 2px;
+			}
+			&.blackBack .whiteBack, &.blackBack div.ctoolbar, 
+			&.blackBack div.fbutton.fcurrent, &.blackBack .st-dtitle-nonmonth,
+			&.blackBack .cc, &.blackBack .mv-daynames-table, 
+			&.blackBack .mv-event-container, &.blackBack #gridcontainer, 
+			&.blackBack .st-dtitle, &.blackBack ul.calViewButtons, 
+			&.blackBack .st-bg {
+			    background:none !important;
+			}
+			&.blackBack .cardFloater:hover .hoverArtist {
+			    color:#eee !important;
+			    text-decoration:none;
+			}
+			&.blackBack h1, &.blackBack div.ctoolbar div.fshowdatep,
+			&.blackBack div.ctoolbar {
+			    color:#eee !important;
+			}
+			&.blackBack div.fbutton:hover i {
+			    color:#eee;
+			}
+			&.blackBack .st-bg, 
+			&.blackBack div.fbutton {
+			    border: #4d4d4d 1px solid !important;
+			}
+			&.blackBack div.ctoolbar div.fshowdatep {
+			    border:none !important;
+			}
+			&.blackBack .st-dtitle {
+			    border-left:none !important;
+			}
+			&.blackBack .controlbar >li a.TicketLink {
+		    	border: 1px solid #0d440d !important;    	
+			}
+			&.blackBack .stageImageAndName {
+			    background:#161616;
+			}
+			&.blackBack .stageImageAndName h3 {
+			    color:#eee;
+			}   
+			&.blackBack .listItem:nth-child(2n){
+			    border-top:1px solid #2d2d2d;
+			    border-bottom:1px solid #2d2d2d;
+			}
+			&.blackBack .eventDescription{
+		    	color: #ddd !important;						
+				span, div, p, 
+				h1, h2, h3, h4, h5, h6{
+					color:#ddd !important;
+					background:none !important;
+				}				
+			}
+			&.blackBack h1, &.blackBack h2, &.blackBack h3, &.blackBack h4, &.blackBack h5, &.blackBack h6, &.blackBack .framePage h3, &.blackBack .h2, &.blackBack .h3, &.blackBack .h4, &.blackBack .h5, &.blackBack .h6 {
+		    color:#cecece;
+			}
+			&.blackBack .controlbar>li a.TicketLink {
+			    border: 1px solid #15bd15!important;
+			}
+			&.blackBack .eventLogistics, 
+			&.blackBack .listEvent .date span {
+			    color: #929292;
+			}
+			&.blackBack .eventInfoArea .eventDescription * {
+		    	color: #d0d0d0 !important;
+			}
+	
+		//Custom Tweaks
+		.listEvent .controlbar.moveLeft{
+			text-align:left;
+			// float:left;
+			margin:0;
+		}
+		.listEvent .controlbar.moveRight{
+			text-align: right;
+    		margin: 0;
+    		float: right !important;
+		}  
+		.listEvent .controlbar.moveCenter{
+			text-align: center;
+    		margin: 0 auto;    
+    		clear: both;
+    		float: none !important;
+		}   
+	
+		// Calendar
+
+		.mega-content .mega-tooltip .view {
+			overflow: hidden;
+		}
+
+		max-width:1240px;
+		margin: 0 auto 30px;
+	
+		// Event Detail
+
+		.megacal-event {
+
+			.megacalSection {
+				margin-bottom: 20px;
+				p{
+					margin-bottom:10px;
+				}
+				.megaDescription p{
+					margin-bottom:20px;
+				}
+			}
+
+		}
+	}
+	.megaSimpleList{
+		margin-bottom:30px;
+		.megaSimpleEvent{
+			clear:both;
+			margin:0 0 10px;
+			background:#fff;			
+			display:flex;
+		    min-height: 80px;
+			position:relative;
+			.leftDate{
+				// flex-direction:;
+				// display:flex;
+				// text-align: center;
+
+				// width:90px;
+				// 	flex: 0 0 90px;
+				//    overflow: hidden;
+				//    box-sizing:border-box;
+				// padding:0;
+				// //height: 100%;
+				//    align-items: center;    
+				background:#eee;
+				.megaDateRegion{
+					// display:flex;
+					// align-items: center;
+					// height:100%;    
+					h3, .h3, .megaDate{
+						// font-size:20px;
+						color:#FFF !important;
+						// line-height:24px;
+						// margin:0;
+						span{
+							color:#FFF !important;
+						}
+					}
+					.dateMask{
+						
+					}
+					.megaDayName{
+					
+					}
+					&.dateMask{
+						background:#48484869;
+						box-sizing:border-box;
+						padding:7px 7px 7px;
+					}
+				}		
+
+			}
+			.rightEventContent{
+				width: calc(100% - 80px);
+				padding:7px 15px 3px 15px;
+				box-sizing:border-box;
+				
+				.megaDetails{
+					
+					.megaEventTitle{
+						h3{
+							margin-bottom:3px;
+							font-size: 21px; 
+							line-height: 23px;
+						}
+					}
+					.megaMeta{
+						font-size: 13px;
+						p{
+							margin-bottom:6px;
+							line-height: 13px !important;
+							font-size: 13px;
+						}
+					}
+					.megaEventLinks{
+						position:absolute;
+						bottom: 11px;
+					    right: 8px;
+						a.megaEventButton{
+							background:blue;
+							opacity: 0.9;
+							color:#FFF;
+							border-radius:10px;
+							font-size:12px;
+							padding:5px 10px;							
+							margin-left:8px;
+							&:hover, &:focus {
+								opacity: 1;
+							}
+							&.megaExternalLink{
+								background:green;
+								opacity: 0.9;
+								&:hover, &:focus {
+									opacity: 1;
+								}
+							}
+						}						
+					}
+				}
+			}
+		}		
+	}
+	.megaContent{
+		.megaMeta{
+			margin-bottom:20px;
+			
+			p{				
+				//line-height: 13px !important;
+				//font-size: 13px;
+			}
+		}
+		.megacal-event-image {
+			text-align:center;
+			img{
+				max-height: 800px;
+			}
+		}
+	}
+	.megacal-event .megaContent{
+		max-width:900px;
+		margin: 0 auto 50px;	
+	}
+	.megaEventDetail{
+		.megaContent{
+			.megaMetaLeft{
+				float: left;
+    			width: 50%;				
+			}
+			.megaMeta{
+				margin-bottom:0;
+				h4.detailTitle{
+					font-size:17px;
+				}
+				p{			
+					margin-bottom:12px;	
+					//line-height: 13px !important;
+				}
+			}
+		}
+		.controlbar li a{
+			&.ticketLink{
+				background:$buttonColor;
+				color:$white;
+				&:hover{
+					background:$buttonHover;
+					color:$white;
+				}
+			}
+		}
+	}
